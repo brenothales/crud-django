@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Turma</h2>
+    <a href="{% url 'turmas:create' %}" class="btn btn-primary">Cadastrar</a>
+
+    {% if turmas.count > 0 %}
+    <legend>Listando meus registros!</legend>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Código da Turma</th>
+            <th>Nome da Turma</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for turma in turmas %}
+            <tr> 
+                <td>{{ turma.codigoTurma }}</td> 
+                <td>{{ turma.nomeTurma }}</td>
+                <td><a href="{% url 'turmas:update' turma.codigoTurma %}" class="btn btn-small"><i class="icon-edit"
+                                                                                            title="Alterar"></i></a>
+                    <a href="{% url 'turmas:delete' turma.codigoTurma %}" class="btn btn-small"><i class="icon-remove"
+                                                                                            title="Excluir"></i></a>
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endblock %}

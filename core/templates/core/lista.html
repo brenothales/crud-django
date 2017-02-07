@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Lista dos posts</h1>
+	<a href="/novo">Novo</a> 
+	{% for post in lista_post %}
+		<article>
+			<h2>{{ post.titulo }}</h2>
+			    {{ post.texto }}
+			    <a href="{% url 'atualizar' post.id %}"Atualizar>Atualizar</a> 
+			    <a href="{% url 'deletar' post.id %}"Atualizar>Deletar</a> 
+		</article>
+	{% endfor %}
+</body>
+</html>

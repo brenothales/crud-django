@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<legend>Excluir?</legend>
+    <p>{{ turma.nomeTurma }}
+    <form action="{% url 'turmas:delete' turma.turma %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-danger" value="Sim">
+        <a href="{% url 'turmas:lista' %}" class="btn">Cancelar</a>
+    </form>
+{% endblock %}
